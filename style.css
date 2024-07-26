@@ -1,0 +1,115 @@
+:root {
+  --week-size: 8px;
+  --week-margin: 1px;
+}
+body {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.container {
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+}
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease-out;
+}
+input, button {
+  padding: 12px 20px;
+  margin: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+input {
+  background-color: #333;
+  color: #fff;
+  width: 200px;
+  max-width: 100%;
+}
+button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+#weeks-lived {
+  font-size: 1.2em;
+  margin: 20px 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+#weeks-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px auto;
+  max-width: 100%;
+}
+.week {
+  width: var(--week-size);
+  height: var(--week-size);
+  margin: var(--week-margin);
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+.week.lived {
+  background-color: #4CAF50;
+  animation: popIn 0.5s ease-out forwards;
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes popIn {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --week-size: 6px;
+    --week-margin: 1px;
+  }
+  h1 { font-size: 1.5em; }
+  input, button { 
+    padding: 10px 15px;
+    font-size: 14px;
+    width: 80%;
+    max-width: none;
+  }
+  #weeks-lived { font-size: 1em; }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  :root {
+    --week-size: 7px;
+    --week-margin: 1px;
+  }
+  h1 { font-size: 1.8em; }
+}
+
+@media (min-width: 1025px) {
+  :root {
+    --week-size: 8px;
+    --week-margin: 1px;
+  }
+}
